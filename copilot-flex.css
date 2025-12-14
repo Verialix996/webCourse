@@ -1,0 +1,136 @@
+:root{
+  --gap: 16px;
+  --pad: 16px;
+  --border: 2px solid red;
+
+  /* גבהים כדי שייצא דומה לציור */
+  --h-top: 110px;
+  --h-mid: 70px;
+  --h-bottom: 120px;
+
+  --sidebar-w: 18%;
+}
+
+*{ box-sizing: border-box; }
+
+body{
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #fff;
+}
+
+/* מסגרת כללית */
+.container{
+  width: min(1200px, 95%);
+  margin: 16px auto;
+  padding: var(--pad);
+  display: flex;
+  gap: var(--gap);
+  align-items: stretch;
+}
+
+/* עיצוב כללי של קופסאות */
+.box{
+  border: var(--border);
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 8px;
+}
+
+/* Sidebar */
+.sidebar{
+  flex: 0 0 var(--sidebar-w);
+  min-height: 520px; /* נותן תחושת “עמוד” כמו במקור */
+}
+
+/* תוכן ימני */
+.content{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+/* שורה עליונה - 4 קופסאות */
+.top-row{
+  display: flex;
+  gap: var(--gap);
+}
+.top{
+  flex: 1;
+  height: var(--h-top);
+}
+
+/* אזור אמצעי */
+.middle-row{
+  display: flex;
+  gap: var(--gap);
+  align-items: stretch;
+}
+
+.middle-left{
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+}
+
+.mid-left.top,
+.mid-left.bottom{
+  height: var(--h-mid);
+}
+
+/* Mid-right גבוה כמו שני השמאליים יחד + gap ביניהם */
+.mid-right{
+  flex: 1;
+  height: calc(var(--h-mid) * 2 + var(--gap));
+}
+
+/* שורה תחתונה */
+.bottom-row{
+  display: flex;
+  gap: var(--gap);
+}
+
+.bottom-left{
+  flex: 3;
+  height: var(--h-bottom);
+}
+
+.bottom-right{
+  flex: 1;
+  height: var(--h-bottom);
+}
+
+/* מובייל: הכל אחד מתחת לשני */
+@media (max-width: 750px){
+  .container{
+    flex-direction: column;
+  }
+
+  .sidebar{
+    flex: 0 0 auto;
+    min-height: 90px;
+  }
+
+  .top-row,
+  .middle-row,
+  .bottom-row{
+    flex-direction: column;
+  }
+
+  .top,
+  .mid-right,
+  .mid-left.top,
+  .mid-left.bottom,
+  .bottom-left,
+  .bottom-right{
+    height: 90px;
+  }
+}
+
+
+

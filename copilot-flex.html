@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Flex Layout</title>
+  <link rel="stylesheet" href="copilot-flex.css" />
+</head>
+
+<body>
+  <main class="container" role="main">
+    <aside class="box sidebar">Sidebar</aside>
+
+    <section class="content">
+      <!-- TOP ROW -->
+      <div class="top-row">
+        <div class="box top top1">Top 1</div>
+        <div class="box top top2">Top 2</div>
+        <div class="box top top3">Top 3</div>
+        <div class="box top top4">Top 4</div>
+      </div>
+
+      <!-- MIDDLE -->
+      <div class="middle-row">
+        <div class="middle-left">
+          <div class="box mid-left top">Mid Left Top</div>
+          <div class="box mid-left bottom">Mid Left Bottom</div>
+        </div>
+        <div class="box mid-right">Mid Right</div>
+      </div>
+
+      <!-- BOTTOM -->
+      <div class="bottom-row">
+        <div class="box bottom-left">Bottom Wide</div>
+        <div class="box bottom-right">Bottom Narrow</div>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
