@@ -1,0 +1,107 @@
+/* איפוס בסיסי */
+body, html {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+/* --- הגדרת הגריד --- */
+.grid-container {
+    display: grid;
+    direction: ltr; /* מבטיח שה-Sidebar יהיה בשמאל */
+    
+    /* 5 עמודות שוות */
+    grid-template-columns: repeat(5, 1fr); 
+    
+    /* שינוי חשוב בשורות:
+       שורה 1: 150px (מלבנים קטנים)
+       שורה 2: 50px  (מקביל עליון)
+       שורה 3: 50px  (מקביל תחתון) -> יחד שורות 2+3 יוצרות את הגובה של האזור האמצעי
+       שורה 4: 100px (תחתונים)
+    */
+    grid-template-rows: 150px 50px 50px 100px; 
+    
+    gap: 10px; 
+    padding: 10px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* --- עיצוב המלבנים --- */
+.box {
+    background-color: white; 
+    border: 2px solid red;   
+    color: black;            
+    display: grid;
+    place-items: center;     
+    font-weight: bold;
+}
+
+/* --- מיקומים --- */
+
+/* 1. Sidebar בצד שמאל */
+.sidebar {
+    grid-column: 1 / 2;
+    /* כעת יש 4 שורות מוגדרות, אז הוא נמתח מהתחלה עד הסוף */
+    grid-row: 1 / -1; 
+}
+
+/* 2. ארבעת הקטנים למעלה (שורה 1) */
+.small-1 { grid-column: 2 / 3; grid-row: 1; }
+.small-2 { grid-column: 3 / 4; grid-row: 1; }
+.small-3 { grid-column: 4 / 5; grid-row: 1; }
+.small-4 { grid-column: 5 / 6; grid-row: 1; }
+
+/* 3. שורה אמצעית (מפוצלת לשתי שורות גריד) */
+
+/* המקבילים - כעת אחד מעל השני (לרוחב) */
+/* תופסים את הרוחב של עמודות 2 ו-3 (שני הקטנים השמאליים) */
+
+.parallel-top { 
+    grid-column: 2 / 4; /* מתפרס על עמודות 2 ו-3 */
+    grid-row: 2;        /* שורה עליונה מבין האמצעיות */
+}
+
+.parallel-bottom { 
+    grid-column: 2 / 4; /* מתפרס על עמודות 2 ו-3 */
+    grid-row: 3;        /* שורה תחתונה מבין האמצעיות */
+}
+
+/* המלבן הגדול מימין - צריך להימתח על פני הגובה של שני המקבילים */
+.middle-big { 
+    grid-column: 4 / 6; /* מתפרס על עמודות 4 ו-5 */
+    grid-row: 2 / 4;    /* מתחיל בשורה 2 ונגמר בסוף שורה 3 */
+}
+
+/* 4. שורה תחתונה */
+
+/* מלבן שמאלי רחב */
+.bottom-left-wide {
+    grid-column: 2 / 5; /* מתפרס על עמודות 2, 3, 4 (רחב) */
+    grid-row: 4;
+}
+
+/* מלבן ימני צר */
+.bottom-right-narrow {
+    grid-column: 5 / 6; /* מתפרס רק על עמודה 5 (צר) */
+    grid-row: 4;
+}
+
+/* --- רספונסיביות --- */
+@media (max-width: 750px) {
+    .grid-container {
+        grid-template-columns: 1fr; /* עמודה אחת */
+        grid-template-rows: auto;   /* גובה אוטומטי */
+    }
+
+    /* איפוס כל המיקומים לתצוגת מובייל */
+    .sidebar, 
+    .small-1, .small-2, .small-3, .small-4,
+    .parallel-top, .parallel-bottom, .middle-big,
+    .bottom-left-wide, .bottom-right-narrow {
+        grid-column: auto;
+        grid-row: auto;
+        min-height: 100px;
+    }
+}
