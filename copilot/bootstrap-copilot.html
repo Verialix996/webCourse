@@ -10,6 +10,15 @@
     @media (max-width: 750px) {
       .stack-wrap { max-width: 750px; margin-left: auto; margin-right: auto; }
     }
+
+    /* Override Bootstrap md breakpoint from 768px to 751px (desktop >750px as required) */
+    @media (min-width: 751px) {
+      .col-md-2 { flex: 0 0 auto; width: 16.66666667%; }
+      .col-md-3 { flex: 0 0 auto; width: 25%; }
+      .col-md-6 { flex: 0 0 auto; width: 50%; }
+      .col-md-9 { flex: 0 0 auto; width: 75%; }
+      .col-md-10 { flex: 0 0 auto; width: 83.33333333%; }
+    }
   </style>
 </head>
 <body>
@@ -22,8 +31,8 @@
 
       <!-- Left tall column -->
       <aside class="col-12 col-md-2">
-        <div class="border border-danger h-100 d-flex align-items-center justify-content-center" style="height:310px;" aria-label="Left tall block">
-          Left
+        <div class="border border-danger d-flex align-items-center justify-content-center" style="height:492px;" aria-label="Left tall block">
+          Sidebar
         </div>
       </aside>
 
@@ -33,35 +42,40 @@
 
           <!-- Top row: four small rectangles -->
           <div class="col-12 col-md-3">
-            <div class="border border-danger h-100 d-flex align-items-center justify-content-center" style="height:160px;">A</div>
+            <div class="border border-danger d-flex align-items-center justify-content-center" style="height:160px;">A</div>
           </div>
           <div class="col-12 col-md-3">
-            <div class="border border-danger h-100 d-flex align-items-center justify-content-center" style="height:160px;">B</div>
+            <div class="border border-danger d-flex align-items-center justify-content-center" style="height:160px;">B</div>
           </div>
           <div class="col-12 col-md-3">
-            <div class="border border-danger h-100 d-flex align-items-center justify-content-center" style="height:160px;">C</div>
+            <div class="border border-danger d-flex align-items-center justify-content-center" style="height:160px;">C</div>
           </div>
           <div class="col-12 col-md-3">
-            <div class="border border-danger h-100 d-flex align-items-center justify-content-center" style="height:160px;">D</div>
+            <div class="border border-danger d-flex align-items-center justify-content-center" style="height:160px;">D</div>
           </div>
 
-          <!-- Middle row: left stacked thin blocks, right large block -->
+        </div>
+
+        <!-- Middle row: left stacked thin blocks, right large block -->
+        <div class="row g-1 mt-0">
           <div class="col-12 col-md-6">
             <div class="border border-danger mb-1 d-flex align-items-center" style="height:80px;">E1</div>
-            <div class="border border-danger mb-1 d-flex align-items-center" style="height:80px;">E2</div>
+            <div class="border border-danger d-flex align-items-center" style="height:80px;">E2</div>
           </div>
           <div class="col-12 col-md-6">
-            <div class="border border-danger h-100 d-flex align-items-center justify-content-center" style="height:160px;">F (tall)</div>
+            <div class="border border-danger d-flex align-items-center justify-content-center" style="height:160px;">F (tall)</div>
           </div>
 
-          <!-- Bottom row: wide block left, two stacked on right -->
-          <div class="col-12 col-md-8">
-            <div class="border border-danger h-100 d-flex align-items-center" style="height:160px;">G (wide)</div>
-          </div>
-          <div class="col-12 col-md-4">
-            <div class="border border-danger h-100 d-flex align-items-center justify-content-center" style="height:160px;">H</div>
-          </div>
+        </div>
 
+        <!-- Bottom row: wide block left (cols 2-4), narrow block right (col 5) -->
+        <div class="row g-1 mt-0">
+          <div class="col-12 col-md-9">
+            <div class="border border-danger d-flex align-items-center" style="height:160px;">G (wide)</div>
+          </div>
+          <div class="col-12 col-md-3">
+            <div class="border border-danger d-flex align-items-center justify-content-center" style="height:160px;">H</div>
+          </div>
         </div>
       </div>
 
