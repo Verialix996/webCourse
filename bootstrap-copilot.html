@@ -9,6 +9,8 @@
     /* Mobile stacking wrapper: limit to 750px and center on small screens */
     @media (max-width: 750px) {
       .stack-wrap { max-width: 750px; margin-left: auto; margin-right: auto; }
+      /* Make sidebar same height as other blocks on mobile */
+      .sidebar-box { height: 160px !important; }
     }
 
     /* Override Bootstrap md breakpoint from 768px to 751px (desktop >750px as required) */
@@ -31,7 +33,7 @@
 
       <!-- Left tall column -->
       <aside class="col-12 col-md-2">
-        <div class="border border-danger d-flex align-items-center justify-content-center" style="height:492px;" aria-label="Left tall block">
+        <div class="border border-danger d-flex align-items-center justify-content-center sidebar-box" style="height:492px;" aria-label="Left tall block">
           Sidebar
         </div>
       </aside>
